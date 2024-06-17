@@ -83,10 +83,10 @@ Don't forget to place the link of where to buy each component inside the quotati
 | Item Name | What the item is used for | $Price | <a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/"> Link </a> |
 | Item Name | What the item is used for | $Price | <a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/"> Link </a> | -->
 
-# Handheld Game Console Project
-# Summary
+# Starter Project
+## Summary
 For my starter project, I chose to build a handheld game console. The project combines multiple different components in order to capture inputs, display them on an LED display, and keep track of score. The IC chip is soldered onto the board and takes inputs from the switch and various buttons. The chip is connected to the LED dot matrix, allowing it to display the game pieces and any inputs provided by the player. Additionally, the chip controls the score counter and the buzzer to create noise.
-# Components Used
+## Components Used
 - IC chip
 - Buzzer
 - LED Dot Matrix
@@ -96,7 +96,7 @@ For my starter project, I chose to build a handheld game console. The project co
 
 
 
-# Challenges faced
+## Challenges faced
 Soldering was difficult on the board, as each component was small and intricate. There were many different connection points required for each component and it was tedious to solder each wire. This was my first time ever soldering and my inexperience added to the difficulty. One problem I faced was pressing each component firmly into its slot while soldering. One trick I used was to press the component in and solder two wires on opposite sides. This held the component in place, making the rest of the soldering fairly simple. Overall, I found that it was effective to work slowly and carefully. It is much more difficult to remove solder from somewhere it shouldn't be. 
 
 <!--# Other Resources/Examples
