@@ -92,6 +92,9 @@ For my starter project, I chose to build a handheld game console. The project co
 - LED Dot Matrix
 - PCB
 - Digitron Display
+- Electric Capacitor
+# Challenges faced
+Soldering was difficult on the board, as each component was small and intricate. There were many different connection points required for each component and it was tedious to solder each wire. This was my first time ever soldering and my inexperience added to the difficulty. One problem I faced was pressing each component firmly into its slot while soldering. One trick I used was to press the component in and solder two wires on opposite sides. This held the component in place, making the rest of the soldering fairly simple. Overall, I found that it was effective to work slowly and carefully. It is much more difficult to remove solder from somewhere it shouldn't be. 
 
 <!--# Other Resources/Examples
 One of the best parts about Github is that you can view how other people set up their own work. Here are some past BSE portfolios that are awesome examples. You can view how they set up their portfolio, and you can view their index.md files to understand how they implemented different portfolio components.
