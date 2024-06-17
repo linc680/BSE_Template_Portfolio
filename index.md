@@ -94,6 +94,8 @@ For my starter project, I chose to build a handheld game console. The project co
 - Digitron Display
 - Electric Capacitor
 
+
+
 # Challenges faced
 Soldering was difficult on the board, as each component was small and intricate. There were many different connection points required for each component and it was tedious to solder each wire. This was my first time ever soldering and my inexperience added to the difficulty. One problem I faced was pressing each component firmly into its slot while soldering. One trick I used was to press the component in and solder two wires on opposite sides. This held the component in place, making the rest of the soldering fairly simple. Overall, I found that it was effective to work slowly and carefully. It is much more difficult to remove solder from somewhere it shouldn't be. 
 
