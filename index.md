@@ -60,9 +60,21 @@ For your first milestone, describe what your project is and how you plan to buil
 Ultimately the goal for this project is to use the PIcam and OpenCV track a ball and use the motors and ultrasonic sensos to navigate toward it, as well as avoid any obstacles. For my first milestone, I constructed the main body of the car and wired each of my components. I downloaded Raspberry Pi OS on my Raspberry Pi and finished setting it up. I connected the camera, ultrasonic sensor and the motors. Additionally, I tested basic functionality of each of my components using some code.
 
 ## Components Used
+- Raspberry Pi minicomputer
+    - The Rasbperry Pi is the heart of the project and provides instructions to each of the other components of the robot. The Raspberry Pi is a microcomputer where the user can load or write programs onto. In addition to directing the instructions, the Raspberry Pi provides power to many of the other components.
+- DC motors
+    - These motors are used to drive the wheels and control the movement of the robot. This motor works by making use of an electromagnet which constantly switches its polarity by switching the direction of the current. This current direction switch is made possible with the commutator and brushes of the motor, which allows for the motor to constantly spin. 
+- Ultrasonic sensors
+    - The ultrasonic sensors allow the robot to know where it is in relation to the ball and any other objects in the room. These sensors work by sending out an ultrasound from the transmittor (trigger pin) and receiving it from the receiver (echo pin). By using some simple calculations including the speed of sound and dividing the final distance by 2 to account for both distances traveled, the ultrasonic sensor is very useful in applications such as this.
+- L298N motor driver board
+    - A dual H-Bridge motor driver board which makes use of a multitude of transistors, allows for this device to control the direction and speed of two different motors, making it a very useful addition for a project such as this. The Raspberry Pi alone is not powerful enough to run the motors, so the driver board also provides power to the motors.
 
 ## Challenges 
 I faced various difficulties while setting up my Raspberry Pi. First, I installed the wrong version of the OS. Additionally, I encountered numerous issues with displaying the contents of my Raspberry Pi on my laptop. I initally attempetd to use RealVNC Viewer, however connecting to the Raspberry Pi was inconsistent and failed often. I connected the Raspberry Pi to my laptop with a video capture card and used OBS to view the contents. I connected a wireless mouse and keyboard to the Raspberrry Pi and was able to interact with the desktop while viewing the video output on OBS.
+
+## What's Next?
+The next major goal for my project is to get the Picamera to recognize and track the ball, using OpenCV. Once this has been achieved, the majority of the project has been finished and I can begin integrating the rest of the functionality of my robot.
+
 <!--
 
 # Schematics 
