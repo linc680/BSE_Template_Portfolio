@@ -45,7 +45,7 @@ For your second milestone, explain what you've worked on since your previous mil
 -->
 
 # First Milestone
-
+<!--
 **Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/CaCazFBhYKs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -55,6 +55,7 @@ For your first milestone, describe what your project is and how you plan to buil
 - Technical progress you've made so far
 - Challenges you're facing and solving in your future milestones
 - What your plan is to complete your project
+-->
 
 ## Summary
 Ultimately the goal for this project is to use the PIcam and OpenCV track a ball and use the motors and ultrasonic sensos to navigate toward it, as well as avoid any obstacles. For my first milestone, I constructed the main body of the car and wired each of my components. I downloaded Raspberry Pi OS on my Raspberry Pi and finished setting it up. I connected the camera, ultrasonic sensor and the motors. Additionally, I tested basic functionality of each of my components using some code.
@@ -95,7 +96,9 @@ void loop() {
 
 }
 ```
+
 -->
+
 # Bill of Materials
 
 | **Part** | **Note** | **Price** | **Link** |
