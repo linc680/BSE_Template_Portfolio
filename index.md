@@ -42,6 +42,8 @@ For your second milestone, explain what you've worked on since your previous mil
 - Previous challenges you faced that you overcame
 - What needs to be completed before your final milestone 
 
+-->
+
 # First Milestone
 
 **Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
@@ -53,6 +55,15 @@ For your first milestone, describe what your project is and how you plan to buil
 - Technical progress you've made so far
 - Challenges you're facing and solving in your future milestones
 - What your plan is to complete your project
+
+## Summary
+Ultimately the goal for this project is to use the PIcam and OpenCV track a ball and use the motors and ultrasonic sensos to navigate toward it, as well as avoid any obstacles. For my first milestone, I constructed the main body of the car and wired each of my components. I downloaded Raspberry Pi OS on my Raspberry Pi and finished setting it up. I connected the camera, ultrasonic sensor and the motors. Additionally, I tested basic functionality of each of my components using some code.
+
+## Components Used
+
+## Challenges 
+I faced various difficulties while setting up my Raspberry Pi. First, I installed the wrong version of the OS. Additionally, I encountered numerous issues with displaying the contents of my Raspberry Pi on my laptop. I initally attempetd to use RealVNC Viewer, however connecting to the Raspberry Pi was inconsistent and failed often. I connected the Raspberry Pi to my laptop with a video capture card and used OBS to view the contents. I connected a wireless mouse and keyboard to the Raspberrry Pi and was able to interact with the desktop while viewing the video output on OBS.
+<!--
 
 # Schematics 
 Here's where you'll put images of your schematics. [Tinkercad](https://www.tinkercad.com/blog/official-guide-to-tinkercad-circuits) and [Fritzing](https://fritzing.org/learning/) are both great resoruces to create professional schematic diagrams, though BSE recommends Tinkercad becuase it can be done easily and for free in the browser. 
