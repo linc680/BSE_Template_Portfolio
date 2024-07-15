@@ -16,8 +16,8 @@ HTML -->
 <img src="Linus_C.JPG" alt="Headstone Image" height="400">
 
   
-<!-- # Final Milestone
-
+# Final Milestone
+<!--
 **Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/F7M7imOVGug" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -53,8 +53,14 @@ For your second milestone, explain what you've worked on since your previous mil
 ## Summary
 In my second milestone, I completed many of essential functions of my robot. The most challenging and important was getting the camera to detect the ball and create a mask around it. I also programmed the motors to turn the robot to face the ball and drive toward it. Additionally, I moved around certain parts of my robot as I finalized the position of each component. At the end of this milestone, the final shape and functionality of my robot really began to take shape.
 
-## Components Used
+## New Components Used
+- Raspberry Pi Camera
+    - Connectd with a ribbon cable to the camera port of the Raspberry Pi; used to capture live video feed or capture images onto the Raspberry Pi. This component is essential to the functionality of the project because each individual frame of the video feed is being analyzed by the program to detect and track the ball.
+- Portable Battery Pack
+    -Supplies power to the Raspberry Pi; is small enough to fit on the robot, allowing the robot to drive around untethered.
 
+## Challenges
+I encountered many issues with the programming of the ball tracking portion of my robot. As I was working, many issues arose. When I first ran my ball tracking program, I found that the camea displayed shifted colors, which was odd, because when I ran the camera without the ball tracking functionality, the colors were normal. I discovered that I had to add a portion to my code that converts the video feed from RGB to BGR. Additionally, once I got the ball tracking to work reliably, I encountered difficulty integrating movement code to make the robot drive toward the ball. With so much complexity of the code and so many components running at once. I found that the camera feed would freeze quite often, causing the robot to stop working correctly. In order to combat this, I had to focus a lot on optimizing my code to make sure it was running as efficiently as possible. Finally, when the robot was successfully tracking the ball and driving around, I encountered a issue where the robot would shuffle back and forth instead of drivng toward the ball in a smooth, straight line. 
 
 # First Milestone
 
