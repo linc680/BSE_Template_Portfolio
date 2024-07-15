@@ -29,8 +29,12 @@ For your final milestone, explain the outcome of your project. Key details to in
 - What you hope to learn in the future after everything you've learned at BSE
 
 
+-->
+<iframe width="560" height="315" src="https://www.youtube.com/embed/voiXY7UIDs4?si=q7NHlKg-riwDikNW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 # Second Milestone
+
+<!--
 
 **Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
 
@@ -43,6 +47,14 @@ For your second milestone, explain what you've worked on since your previous mil
 - What needs to be completed before your final milestone 
 
 -->
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/2t-dJcI8XoY?si=1ZPrl4aSTyaytTRl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+## Summary
+In my second milestone, I completed many of essential functions of my robot. The most challenging and important was getting the camera to detect the ball and create a mask around it. I also programmed the motors to turn the robot to face the ball and drive toward it. Additionally, I moved around certain parts of my robot as I finalized the position of each component. At the end of this milestone, the final shape and functionality of my robot really began to take shape.
+
+## Components Used
+
 
 # First Milestone
 
