@@ -118,24 +118,152 @@ The next major goal for my project is to get the Picamera to recognize and track
 
 # Schematics 
 Here's where you'll put images of your schematics. [Tinkercad](https://www.tinkercad.com/blog/official-guide-to-tinkercad-circuits) and [Fritzing](https://fritzing.org/learning/) are both great resoruces to create professional schematic diagrams, though BSE recommends Tinkercad becuase it can be done easily and for free in the browser. 
-
-# Code
-Here's where you'll put your code. The syntax below places it into a block of code. Follow the guide [here]([url](https://www.markdownguide.org/extended-syntax/)) to learn how to customize it to your project needs. 
-
-```c++
-void setup() {
-  // put your setup code here, to run once:
-  Serial.begin(9600);
-  Serial.println("Hello World!");
-}
-
-void loop() {
-  // put your main code here, to run repeatedly:
-
-}
-```
-
 -->
+# Code
+Below is the final code for my ball tracking robot. GPIO pins for the DC motors and ultrasonic sensors may need to be adjusted based on wiring differences.
+```c++
+import cv2
+import numpy as np
+from picamera2 import Picamera2
+from gpiozero import Motor
+import RPi.GPIO as GPIO
+import time
+
+# Initialize the camera
+def initialize_camera():
+    picam2 = Picamera2()
+    camera_config = picam2.create_preview_configuration(main={"size": (640, 480), "format": "RGB888"})
+    picam2.configure(camera_config)
+    picam2.start()
+    return picam2
+
+# Initialize the ultrasonic sensor
+def initialize_ultrasonic(trigger_pin, echo_pin):
+    GPIO.setwarnings(False)
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setup(trigger_pin, GPIO.OUT)
+    GPIO.setup(echo_pin, GPIO.IN)
+
+# Measure distance using the ultrasonic sensor
+def measure_distance(trigger_pin, echo_pin):
+    GPIO.output(trigger_pin, True)
+    time.sleep(0.00001)
+    GPIO.output(trigger_pin, False)
+
+    start_time = time.time()
+    stop_time = time.time()
+
+    while GPIO.input(echo_pin) == 0:
+        start_time = time.time()
+
+    while GPIO.input(echo_pin) == 1:
+        stop_time = time.time()
+
+    elapsed_time = stop_time - start_time
+    distance = (elapsed_time * 34300) / 2
+    return distance
+
+# Initialize the motors
+def initialize_motors():
+    left_motor = Motor(forward=22, backward=23)  # Adjust GPIO pins as needed
+    right_motor = Motor(forward=6, backward=5)  # Adjust GPIO pins as needed
+    return left_motor, right_motor
+
+# Control the motors to move towards the ball
+def move_towards_ball(left_motor, right_motor, x, frame_width, front_distance, left_distance, right_distance):
+    center_x = frame_width / 2
+    buffer_zone = 80  # Increased buffer zone
+
+    if front_distance < 8 or left_distance < 8 or right_distance < 8:
+        left_motor.stop()
+        right_motor.stop()
+        return
+
+    if abs(x - center_x) < buffer_zone:
+        left_motor.forward()
+        right_motor.forward()
+    elif x < center_x - buffer_zone:
+        left_motor.backward()
+        right_motor.forward()
+    elif x > center_x + buffer_zone:
+        left_motor.forward()
+        right_motor.backward()
+
+def main():
+    picam2 = initialize_camera()
+    left_motor, right_motor = initialize_motors()
+   
+    # Ultrasonic sensor GPIO pins (adjust as needed)
+    front_trigger, front_echo = 24, 25
+    left_trigger, left_echo = 12, 16
+    right_trigger, right_echo = 17, 27  
+    initialize_ultrasonic(front_trigger, front_echo)
+    initialize_ultrasonic(left_trigger, left_echo)
+    initialize_ultrasonic(right_trigger, right_echo)
+
+    lower_red1 = np.array([0, 120, 70])
+    upper_red1 = np.array([10, 255, 255])
+    lower_red2 = np.array([170, 120, 70])
+    upper_red2 = np.array([180, 255, 255])
+
+    try:
+        while True:
+            try:
+                frame = picam2.capture_array()
+            except Exception as e:
+                print(f"Error capturing image: {e}")
+                continue
+           
+            frame = cv2.cvtColor(frame, cv2.COLOR_RGB2BGR)
+            frame = cv2.cvtColor(frame, cv2.COLOR_RGB2BGR)
+            hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
+
+            mask1 = cv2.inRange(hsv, lower_red1, upper_red1)
+            mask2 = cv2.inRange(hsv, lower_red2, upper_red2)
+            mask = cv2.bitwise_or(mask1, mask2)
+            mask = cv2.erode(mask, None, iterations=2)
+            mask = cv2.dilate(mask, None, iterations=2)
+
+            contours = cv2.findContours(mask.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+            contours = contours[0] if len(contours) == 2 else contours[1]
+
+            if contours:
+                c = max(contours, key=cv2.contourArea)
+                ((x, y), radius) = cv2.minEnclosingCircle(c)
+                M = cv2.moments(c)
+                if M["m00"] > 0:
+                    center = (int(M["m10"] / M["m00"]), int(M["m01"] / M["m00"]))
+                else:
+                    center = None
+
+                if radius > 10:
+                    cv2.circle(frame, (int(x), int(y)), int(radius), (0, 255, 255), 2)
+                    cv2.circle(frame, center, 5, (0, 0, 255), -1)
+                    front_distance = measure_distance(front_trigger, front_echo)
+                    left_distance = measure_distance(left_trigger, left_echo)
+                    right_distance = measure_distance(right_trigger, right_echo)
+                    move_towards_ball(left_motor, right_motor, x, frame.shape[1], front_distance, left_distance, right_distance)
+
+            cv2.imshow("Frame", frame)
+            key = cv2.waitKey(1) & 0xFF
+
+            if key == ord("q"):
+                break
+
+    except KeyboardInterrupt:
+        print("Program interrupted by user.")
+
+    finally:
+        left_motor.stop()
+        right_motor.stop()
+        cv2.destroyAllWindows()
+#         picam2.stop()
+        GPIO.cleanup()
+
+if __name__ == "__main__":
+    main()
+```
+  
 
 # Bill of Materials
 
