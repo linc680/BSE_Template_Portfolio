@@ -9,7 +9,7 @@ HTML -->
 
 | **Engineer** | **School** | **Area of Interest** | **Grade** |
 |:--:|:--:|:--:|:--:|
-| Linus C | Homestead High School | Mechanical Engineering | Incoming Senior
+| Linus C | Homestead HS | Mechanical Engineering | Incoming Senior
 
 <!--**Replace the BlueStamp logo below with an image of yourself and your completed project. Follow the guide [here](https://tomcam.github.io/least-github-pages/adding-images-github-pages-site.html) if you need help.**-->
 
@@ -31,6 +31,18 @@ For your final milestone, explain the outcome of your project. Key details to in
 
 -->
 <iframe width="560" height="315" src="https://www.youtube.com/embed/voiXY7UIDs4?si=4QDkKcrVznKKJuAn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+## Summary
+For my final milstone, I incorporated three ultrasonic sensors to the front of my robot. This provides the robot with information about how far it is from bjects around the room. Using this data, I programmed the robot to stop when it gets too close to the ball and stop if it gets too close to obstacles in the way. I also had to reroute my existing wires to make room for the new wires from the ultrasonic sensors.
+
+## Challenges
+I found that it was fairly simple to implement the middle ultrasonic sensor. I programmed the robot to stop when the ultrasonic sensor value got less than 10 cm. However, when I tried to add the left and right ultrasonic sensors, I wanted them to assist with the ball tracking, by providing information on exactly where the ball was. This proved to be very challenging, so I decided to use them solely for obstacle avoidance. While writing the program, I couldn't figure out how to get the robot to differentiate between the ball and an obstacle. This meant that trying to avoid anything that came too close to the sensors broke the ball tracking functionality. I ended up just having the robot stop whenever an object got too close to any of the sensors. Even with this simpler code, I found that the program would still run very inconsistently and freeze often.
+
+## Biggest Takeaways
+Ultimately, I would consider my project to be a success. Despite facing many difficulties, some of which are still unresolved, I was able to create a robot that succesfully tracks a ball, which was the main goal of the project. Going into the project, I had minimal programming knowledge. This project taught me a lot about the basics of programming, as well as just how much more I have to learn. Throughout the construction of this project, I learned many other valuable skills. Some of these skills were tangible and immediately applicable, such as soldering and using CAD to design custom parts. However, perhaps more importantly, I learned independence. I learned how to find useful and relevant online resources to solve issues I was facing. 
+
+## What's Next?
+To keep improving my project, I would like to enhance the obstacle detection and avoidance of my robot. In order to do this, I would need have the robot approach the problem in a different way, as well as optimize the code to ensure the program runs smoothly and without errors. Additionally, another goal of mine would be to be able to track different types of objects, not just a red ball. 
 
 # Second Milestone
 
